@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Grid, Form, Pagination, Segment } from "semantic-ui-react";
+import { Pagination, Icon, Grid } from "semantic-ui-react";
 
 import Character from "./Character.js";
 //import Pagination from "./Pagination.js";
@@ -8,7 +8,7 @@ import Searchform from "./Searchform.js";
 
 export default function CharacterList() {
     const [characters, setCharacters] = useState([]);
-    const [pages, setPages] = useState([]);
+    const [pages, setPages] = useState(1);
     const [currentPage, setCurrentPage] = useState();
     const [searchKey, setSearchKey] = useState("");
 
@@ -19,15 +19,14 @@ export default function CharacterList() {
             )
             .then((res) => {
                 // handle success
-                console.log(res);
+                // console.log(res);
                 setPages(res.data.info.pages);
                 setCharacters(res.data.results);
             });
     }, [searchKey, currentPage]);
 
     const currPageHandler = (e) => {
-        console.log(e);
-        //setCurrentPage(e.target.getAttribute("data-id"));
+        setCurrentPage(e.currentTarget.getAttribute("value"));
     };
 
     const keyHandler = (e) => {
@@ -36,34 +35,52 @@ export default function CharacterList() {
     };
 
     return (
-        <Row>
-            <Col md="5" className="search-wrapper">
-                <Searchform keyword={keyHandler} />
-            </Col>
-            <Col md="12" className="char-wrapper">
-                <Row>
+        <div className="charList-wrapper">
+            <Searchform keyword={keyHandler} />
+            <Grid>
+                <Grid.Row columns={4}>
                     {characters.map((char, i) => {
-                        return <Character key={i} attributes={char} />;
+                        return (
+                            <Grid.Column key={i}>
+                                <Character key={i} attributes={char} />
+                            </Grid.Column>
+                        );
                     })}
-                </Row>
-            </Col>
-            <Col md="12" className="pagination">
-                <Row>
-                    <Pagination
-                        activePage={5}
-                        boundaryRange={1}
-                        onPageChange={currPageHandler}
-                        size="mini"
-                        siblingRange={1}
-                        totalPages={pages}
-                        ellipsisItem={true}
-                        firstItem={true}
-                        lastItem={true}
-                        prevItem={true}
-                        nextItem={true}
-                    />
-                </Row>
-            </Col>
-        </Row>
+                </Grid.Row>
+            </Grid>
+
+            {/* <Pagination
+                defaultActivePage={5}
+                onPageChange={currPageHandler}
+                ellipsisItem={{
+                    content: <Icon name="ellipsis horizontal" />,
+                    icon: true
+                }}
+                firstItem={{
+                    content: <Icon name="angle double left" />,
+                    icon: true
+                }}
+                lastItem={{
+                    content: <Icon name="angle double right" />,
+                    icon: true
+                }}
+                prevItem={{ content: <Icon name="angle left" />, icon: true }}
+                nextItem={{ content: <Icon name="angle right" />, icon: true }}
+                totalPages={pages}
+            /> */}
+            <Pagination
+                onPageChange={currPageHandler}
+                totalPages={pages}
+                boundaryRange={2}
+                defaultActivePage={1}
+                ellipsisItem={{
+                    content: <Icon name="ellipsis horizontal" />,
+                    icon: true
+                }}
+                firstItem={null}
+                lastItem={null}
+                siblingRange={1}
+            />
+        </div>
     );
 }

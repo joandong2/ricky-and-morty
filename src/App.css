@@ -45,12 +45,12 @@
     margin-right: 10px;
 }
 
-.char img {
+.charList-wrapper img {
     width: 100%;
     border: none;
 }
 
-.pagination {
+.charList-wrapper .ui.pagination.menu {
     margin-bottom: 40px;
-    padding-left: 30px;
+    margin-top: 40px;
 }

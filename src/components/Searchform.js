@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 export default function Searchform(props) {
     const [key, setKey] = useState("");
@@ -14,18 +13,16 @@ export default function Searchform(props) {
     };
 
     return (
-        <Form onSubmit={submitHandler}>
-            <FormGroup>
-                <Input
-                    type="text"
-                    name="search"
-                    id="search"
-                    value={key}
-                    onChange={changeHandler}
-                    placeholder="Search Character"
-                />
-                <Button>Submit</Button>
-            </FormGroup>
-        </Form>
+        <form onSubmit={submitHandler}>
+            <input
+                type="text"
+                name="search"
+                id="search"
+                value={key}
+                onChange={changeHandler}
+                placeholder="Search Character"
+            />
+            <button>Submit</button>
+        </form>
     );
 }
