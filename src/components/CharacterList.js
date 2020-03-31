@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Row } from "reactstrap";
+import { Grid, Form, Pagination, Segment } from "semantic-ui-react";
 
 import Character from "./Character.js";
-import Pagination from "./Pagination.js";
+//import Pagination from "./Pagination.js";
 import Searchform from "./Searchform.js";
 
 export default function CharacterList() {
@@ -26,7 +26,8 @@ export default function CharacterList() {
     }, [searchKey, currentPage]);
 
     const currPageHandler = (e) => {
-        setCurrentPage(e.target.getAttribute("data-id"));
+        console.log(e);
+        //setCurrentPage(e.target.getAttribute("data-id"));
     };
 
     const keyHandler = (e) => {
@@ -36,21 +37,33 @@ export default function CharacterList() {
 
     return (
         <Row>
-            <Searchform keyword={keyHandler} />
-
-            {characters.map((char, i) => {
-                return <Character key={i} attributes={char} />;
-            })}
-
-            {[...Array(pages).keys()].map((i) => {
-                return (
+            <Col md="5" className="search-wrapper">
+                <Searchform keyword={keyHandler} />
+            </Col>
+            <Col md="12" className="char-wrapper">
+                <Row>
+                    {characters.map((char, i) => {
+                        return <Character key={i} attributes={char} />;
+                    })}
+                </Row>
+            </Col>
+            <Col md="12" className="pagination">
+                <Row>
                     <Pagination
-                        key={i + 1}
-                        index={i + 1}
-                        onclick={currPageHandler}
+                        activePage={5}
+                        boundaryRange={1}
+                        onPageChange={currPageHandler}
+                        size="mini"
+                        siblingRange={1}
+                        totalPages={pages}
+                        ellipsisItem={true}
+                        firstItem={true}
+                        lastItem={true}
+                        prevItem={true}
+                        nextItem={true}
                     />
-                );
-            })}
+                </Row>
+            </Col>
         </Row>
     );
 }

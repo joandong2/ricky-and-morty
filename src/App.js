@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "semantic-ui-css/semantic.min.css";
 import { Container } from "reactstrap";
 import "./App.css";
 

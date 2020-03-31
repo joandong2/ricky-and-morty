@@ -1,5 +1,5 @@
 .App {
-    text-align: center;
+    /* text-align: center; */
 }
 
 .App-logo {
@@ -37,7 +37,20 @@
     }
 }
 
-.card img {
+.search-wrapper .form-group {
+    display: flex;
+}
+
+.search-wrapper input {
+    margin-right: 10px;
+}
+
+.char img {
     width: 100%;
     border: none;
+}
+
+.pagination {
+    margin-bottom: 40px;
+    padding-left: 30px;
 }

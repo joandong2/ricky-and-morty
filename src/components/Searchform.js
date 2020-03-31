@@ -16,7 +16,6 @@ export default function Searchform(props) {
     return (
         <Form onSubmit={submitHandler}>
             <FormGroup>
-                <Label for="search">Search</Label>
                 <Input
                     type="text"
                     name="search"
@@ -25,8 +24,8 @@ export default function Searchform(props) {
                     onChange={changeHandler}
                     placeholder="Search Character"
                 />
+                <Button>Submit</Button>
             </FormGroup>
-            <Button>Submit</Button>
         </Form>
     );
 }
