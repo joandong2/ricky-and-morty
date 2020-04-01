@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Pagination, Icon, Grid } from "semantic-ui-react";
-
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Character from "./Character.js";
-//import Pagination from "./Pagination.js";
 import Searchform from "./Searchform.js";
 
 export default function CharacterList() {
@@ -19,7 +18,7 @@ export default function CharacterList() {
             )
             .then((res) => {
                 // handle success
-                // console.log(res);
+                console.log(res);
                 setPages(res.data.info.pages);
                 setCharacters(res.data.results);
             });
@@ -37,37 +36,27 @@ export default function CharacterList() {
     return (
         <div className="charList-wrapper">
             <Searchform keyword={keyHandler} />
+
             <Grid>
                 <Grid.Row columns={4}>
-                    {characters.map((char, i) => {
-                        return (
-                            <Grid.Column key={i}>
-                                <Character key={i} attributes={char} />
-                            </Grid.Column>
-                        );
-                    })}
+                    <TransitionGroup>
+                        {characters.map((char, i) => {
+                            return (
+                                <Grid.Column key={i}>
+                                    <CSSTransition
+                                        key={i}
+                                        timeout={5000}
+                                        classNames="fade"
+                                    >
+                                        <Character key={i} attributes={char} />
+                                    </CSSTransition>
+                                </Grid.Column>
+                            );
+                        })}
+                    </TransitionGroup>
                 </Grid.Row>
             </Grid>
 
-            {/* <Pagination
-                defaultActivePage={5}
-                onPageChange={currPageHandler}
-                ellipsisItem={{
-                    content: <Icon name="ellipsis horizontal" />,
-                    icon: true
-                }}
-                firstItem={{
-                    content: <Icon name="angle double left" />,
-                    icon: true
-                }}
-                lastItem={{
-                    content: <Icon name="angle double right" />,
-                    icon: true
-                }}
-                prevItem={{ content: <Icon name="angle left" />, icon: true }}
-                nextItem={{ content: <Icon name="angle right" />, icon: true }}
-                totalPages={pages}
-            /> */}
             <Pagination
                 onPageChange={currPageHandler}
                 totalPages={pages}

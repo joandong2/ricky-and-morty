@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Form, Input } from "semantic-ui-react";
 
 export default function Searchform(props) {
     const [key, setKey] = useState("");
@@ -8,21 +9,24 @@ export default function Searchform(props) {
     };
 
     const submitHandler = (e) => {
+        setKey("");
         e.preventDefault();
         props.keyword(key);
     };
 
     return (
-        <form onSubmit={submitHandler}>
-            <input
-                type="text"
-                name="search"
-                id="search"
-                value={key}
-                onChange={changeHandler}
-                placeholder="Search Character"
-            />
-            <button>Submit</button>
-        </form>
+        <Form onSubmit={submitHandler}>
+            <Form.Group inline>
+                <Form.Field
+                    control={Input}
+                    placeholder="Search character.."
+                    onChange={changeHandler}
+                    value={key}
+                    name="search"
+                />
+
+                <Form.Field control={Button}>Search</Form.Field>
+            </Form.Group>
+        </Form>
     );
 }
