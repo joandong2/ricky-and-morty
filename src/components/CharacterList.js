@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Pagination, Icon, Grid, List } from "semantic-ui-react";
+import { Pagination, Icon, Grid } from "semantic-ui-react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Character from "./Character.js";
 import Searchform from "./Searchform.js";
@@ -18,7 +18,7 @@ export default function CharacterList() {
             )
             .then((res) => {
                 // handle success
-                // console.log(res);
+                console.log(res);
                 setPages(res.data.info.pages);
                 setCharacters(res.data.results);
             });
@@ -38,30 +38,42 @@ export default function CharacterList() {
             <Searchform keyword={keyHandler} />
 
             <Grid>
-                <Grid.Row columns={4}>
-                    <TransitionGroup>
-                        {characters.map((char, i) => {
-                            return (
-                                <CSSTransition
-                                    timeout={500}
-                                    classNames="fade"
+                <TransitionGroup className="four column row">
+                    {characters.map((char, i) => {
+                        return (
+                            <CSSTransition
+                                timeout={500}
+                                classNames="fade"
+                                key={char.name}
+                            >
+                                <Grid.Column
                                     key={i}
+                                    style={{
+                                        "transition-delay": `${i * 100}ms`
+                                    }}
                                 >
-                                    <List.Item
-                                        key={i}
-                                        style={{
-                                            "transition-delay": `${i * 300}ms`
-                                        }}
-                                    >
-                                        {/* <Character key={i} attributes={char} /> */}
-                                        <img src={char.image} alt={char.name} />
-                                    </List.Item>
-                                </CSSTransition>
-                            );
-                        })}
-                    </TransitionGroup>
-                </Grid.Row>
+                                    <Character key={i} attributes={char} />
+                                    {/* <img src={char.image} alt={char.name} /> */}
+                                </Grid.Column>
+                            </CSSTransition>
+                        );
+                    })}
+                </TransitionGroup>
             </Grid>
+
+            <Pagination
+                onPageChange={currPageHandler}
+                totalPages={pages}
+                boundaryRange={2}
+                defaultActivePage={1}
+                ellipsisItem={{
+                    content: <Icon name="ellipsis horizontal" />,
+                    icon: true
+                }}
+                firstItem={null}
+                lastItem={null}
+                siblingRange={1}
+            />
         </div>
     );
 }
