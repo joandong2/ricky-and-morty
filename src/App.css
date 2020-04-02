@@ -1,5 +1,5 @@
 body {
-    background: darkred;
+    background-image: url("./images/bg.jpg");
 }
 .App {
 }
@@ -44,7 +44,7 @@ body {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    height: 100px;
+    height: 120px;
 }
 
 path {
@@ -106,13 +106,13 @@ h4 {
 .fade-enter {
     opacity: 0;
     visibility: hidden;
-    transition: all ease 2s;
+    transition: all ease 0.5s;
 }
 
 .fade-enter-active {
     opacity: 1;
     visibility: visible;
-    transition: all ease 2s;
+    transition: all ease 0.5s;
 }
 
 .fade-exit {
@@ -123,5 +123,5 @@ h4 {
 .fade-exit-active {
     opacity: 0;
     visibility: hidden;
-    transition: all ease 2s;
+    transition: all ease 0.5s;
 }

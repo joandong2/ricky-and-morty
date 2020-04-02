@@ -1,6 +1,4 @@
 import React from "react";
-import { useSpring, animated } from "react-spring";
-import { Spring } from "react-spring/renderprops";
 
 export default function Home() {
     return (

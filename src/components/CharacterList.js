@@ -42,7 +42,7 @@ export default function CharacterList() {
                     {characters.map((char, i) => {
                         return (
                             <CSSTransition
-                                timeout={300}
+                                timeout={200}
                                 classNames="fade"
                                 key={char.name}
                             >
