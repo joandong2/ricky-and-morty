@@ -38,18 +38,18 @@ export default function CharacterList() {
             <Searchform keyword={keyHandler} />
 
             <Grid>
-                <TransitionGroup className="four column row">
+                <TransitionGroup className="five column row">
                     {characters.map((char, i) => {
                         return (
                             <CSSTransition
-                                timeout={500}
+                                timeout={300}
                                 classNames="fade"
                                 key={char.name}
                             >
                                 <Grid.Column
                                     key={i}
                                     style={{
-                                        "transition-delay": `${i * 100}ms`
+                                        transitionDelay: `${i * 100}ms`
                                     }}
                                 >
                                     <Character key={i} attributes={char} />

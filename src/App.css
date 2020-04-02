@@ -1,5 +1,7 @@
+body {
+    background: darkred;
+}
 .App {
-    /* text-align: center; */
 }
 
 .App-logo {
@@ -37,6 +39,52 @@
     }
 }
 
+#logo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 100px;
+}
+
+path {
+    stroke: #000;
+    fill: #fff;
+    stroke-dasharray: 1800;
+    opacity: 10;
+    animation: animate 3s cubic-bezier(0, 0.23, 1, 0.1);
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 1800;
+    }
+
+    30% {
+        opacity: 10;
+        fill: none;
+        stroke-dashoffset: 1800;
+    }
+
+    90% {
+        fill: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        opacity: 10;
+        fill: rgba(255, 255, 255, 1);
+        stroke-dashoffset: 0;
+    }
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 20px !important;
+    text-align: center;
+}
+
 .search-wrapper .form-group {
     display: flex;
 }
@@ -58,13 +106,13 @@
 .fade-enter {
     opacity: 0;
     visibility: hidden;
-    transition: all ease 4s;
+    transition: all ease 2s;
 }
 
 .fade-enter-active {
     opacity: 1;
     visibility: visible;
-    transition: all ease 4s;
+    transition: all ease 2s;
 }
 
 .fade-exit {
@@ -75,5 +123,5 @@
 .fade-exit-active {
     opacity: 0;
     visibility: hidden;
-    transition: all ease 4s;
+    transition: all ease 2s;
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { Container } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
 import Header from "./components/Header.js";
-import Home from "./components/Home.js";
 import CharacterList from "./components/CharacterList.js";
-import { Container } from "semantic-ui-react";
+import Home from "./pages/Home.js";
 
 function App() {
     return (
