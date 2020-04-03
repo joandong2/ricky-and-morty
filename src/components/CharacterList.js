@@ -21,6 +21,9 @@ export default function CharacterList() {
                 console.log(res);
                 setPages(res.data.info.pages);
                 setCharacters(res.data.results);
+            })
+            .catch((error) => {
+                console.log("Error:", error);
             });
     }, [searchKey, currentPage]);
 

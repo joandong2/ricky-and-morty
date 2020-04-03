@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -5,23 +8,128 @@
 
 body {
     box-sizing: border-box;
-    /* background: url("./images/bg.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
     image-rendering: -webkit-optimize-contrast;
-    background: #000;
+    background: url("./images/bg1.jpeg") no-repeat center left;
+    background-size: cover;
+    font-family: "Montserrat", sans-serif;
 }
-.App {
+
+nav {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+nav a {
+    margin-right: 10px;
+    color: rgb(87, 1, 87);
+    font-family: "Homemade Apple", cursive;
+    padding: 5px 15px;
+    font-size: 1.4rem;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+.moving-panels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    animation: fade 2s ease-in forwards;
+    opacity: 1;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.panels {
+    width: 150px;
+    height: 350px;
+    background: white;
+    margin: 0 10px;
+    position: relative;
+    animation-name: moving;
+    animation-timing-function: ease-in;
+    animation-duration: 2.5s;
+    position: relative;
+    top: 50px;
+}
+
+.panels:nth-child(1) {
+    background-image: url("//rickandmortyapi.com/api/character/avatar/1.jpeg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.panels:nth-child(2) {
+    background-image: url("//rickandmortyapi.com/api/character/avatar/2.jpeg");
+    background-position: center center;
+    background-size: cover;
+    animation-name: moving;
+    animation-duration: 2.5s;
+    animation-delay: 0.1s;
+}
+
+.panels:nth-child(3) {
+    background-image: url("//rickandmortyapi.com/api/character/avatar/280.jpeg");
+    background-position: center center;
+    background-size: cover;
+    animation-name: moving;
+    animation-duration: 2.5s;
+    animation-delay: 0.2s;
+}
+
+.panels:nth-child(4) {
+    background-image: url("//rickandmortyapi.com/api/character/avatar/331.jpeg");
+    background-position: center center;
+    background-size: cover;
+    animation-name: moving;
+    animation-duration: 2.5s;
+    animation-delay: 0.3s;
+}
+
+.panels:nth-child(5) {
+    background-image: url("//rickandmortyapi.com/api/character/avatar/331.jpeg");
+    background-position: center center;
+    background-size: cover;
+    animation-name: moving;
+    animation-duration: 2.5s;
+    animation-delay: 0.4s;
+}
+
+.panels:nth-child(6) {
+    background-image: url("//rickandmortyapi.com/api/character/avatar/331.jpeg");
+    background-position: center center;
+    background-size: cover;
+    animation-name: moving;
+    animation-duration: 2.5s;
+    animation-delay: 0.5s;
+}
+
+@keyframes moving {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: 50px;
+    }
 }
 
 #logo {
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 60%;
     left: 50%;
-    height: 180px;
+    height: 120px;
     animation: fill 0.5s ease forwards 1.5s;
     fill-opacity: 1;
 }
@@ -29,7 +137,7 @@ body {
 #logo path {
     stroke-dasharray: 2500;
     stroke-dashoffset: 2500;
-    stroke: #ff9800;
+    stroke: #151515;
     animation: anim 2s ease-in forwards;
 }
 
@@ -88,41 +196,9 @@ body {
         fill: transparent;
     }
     to {
-        fill: rgb(87, 1, 87);
+        fill: #e6e6e6;
     }
 }
-
-/* path {
-    stroke: #70de28;
-    fill: rgba(243, 3, 252, 1);
-    stroke-dasharray: 1800;
-    opacity: 10;
-    animation: animate 2s cubic-bezier(0, 0.23, 1, 0.5);
-}
-
-@keyframes animate {
-    0% {
-        opacity: 0;
-        fill: none;
-        stroke-dashoffset: 1800;
-    }
-
-    30% {
-        opacity: 5;
-        fill: none;
-        stroke-dashoffset: 1500;
-    }
-
-    80% {
-        fill: rgb(103, 0, 167, 0.8);
-    }
-
-    100% {
-        opacity: 10;
-        fill: rgba(243, 3, 252, 1);
-        stroke-dashoffset: 0;
-    }
-} */
 
 h4 {
     margin-top: 0;
@@ -145,7 +221,6 @@ h4 {
 
 .charList-wrapper .ui.pagination.menu {
     margin-bottom: 40px;
-    margin-top: 40px;
 }
 
 .fade-enter {
