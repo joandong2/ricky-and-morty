@@ -1,42 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-image: url("./images/bg.jpg");
+    box-sizing: border-box;
+    /* background: url("./images/bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    image-rendering: -webkit-optimize-contrast;
+    background: #000;
 }
 .App {
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 #logo {
@@ -44,15 +21,83 @@ body {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    height: 120px;
+    height: 180px;
+    animation: fill 0.5s ease forwards 1.5s;
+    fill-opacity: 1;
 }
 
-path {
-    stroke: #000;
-    fill: #fff;
+#logo path {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    stroke: #ff9800;
+    animation: anim 2s ease-in forwards;
+}
+
+#logo path:nth-child(2) {
+    animation: anim 2s ease-in forwards 0.4s;
+}
+
+#logo path:nth-child(3) {
+    animation: anim 2s ease-in forwards 0.6s;
+}
+
+#logo path:nth-child(4) {
+    animation: anim 2s ease-in forwards 0.8s;
+}
+
+#logo path:nth-child(5) {
+    animation: anim 2s ease-in forwards 0.1s;
+}
+
+#logo path:nth-child(6) {
+    animation: anim 2s ease-in forwards 0.12s;
+}
+
+#logo path:nth-child(7) {
+    animation: anim 2s ease-in forwards 0.14s;
+}
+
+#logo path:nth-child(8) {
+    animation: anim 2s ease-in forwards 0.16s;
+}
+
+#logo path:nth-child(9) {
+    animation: anim 2s ease-in forwards 0.18s;
+}
+
+#logo path:nth-child(10) {
+    animation: anim 2s ease-in forwards 0.2s;
+}
+
+#logo path:nth-child(11) {
+    animation: anim 2s ease-in forwards 0.22s;
+}
+
+#logo path:nth-child(12) {
+    animation: anim 2s ease-in forwards 0.24s;
+}
+
+@keyframes anim {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: rgb(87, 1, 87);
+    }
+}
+
+/* path {
+    stroke: #70de28;
+    fill: rgba(243, 3, 252, 1);
     stroke-dasharray: 1800;
     opacity: 10;
-    animation: animate 3s cubic-bezier(0, 0.23, 1, 0.1);
+    animation: animate 2s cubic-bezier(0, 0.23, 1, 0.5);
 }
 
 @keyframes animate {
@@ -63,21 +108,21 @@ path {
     }
 
     30% {
-        opacity: 10;
+        opacity: 5;
         fill: none;
-        stroke-dashoffset: 1800;
+        stroke-dashoffset: 1500;
     }
 
-    90% {
-        fill: rgba(255, 255, 255, 0);
+    80% {
+        fill: rgb(103, 0, 167, 0.8);
     }
 
     100% {
         opacity: 10;
-        fill: rgba(255, 255, 255, 1);
+        fill: rgba(243, 3, 252, 1);
         stroke-dashoffset: 0;
     }
-}
+} */
 
 h4 {
     margin-top: 0;
