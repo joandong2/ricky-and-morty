@@ -10,6 +10,7 @@ export default function Home() {
                 <div className="panels"></div>
                 <div className="panels"></div>
                 <div className="panels"></div>
+                <div className="panels"></div>
             </div>
             <svg
                 id="logo"

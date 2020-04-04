@@ -41,7 +41,7 @@ export default function CharacterList() {
             <Searchform keyword={keyHandler} />
 
             <Grid>
-                <TransitionGroup className="five column row">
+                <TransitionGroup className="six column row">
                     {characters.map((char, i) => {
                         return (
                             <CSSTransition
