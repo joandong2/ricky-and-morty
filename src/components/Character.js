@@ -78,8 +78,8 @@ export default function Character(props) {
                             />
                         </Icon.Group>
                         <Icon loading name="rocket" size="large" color="red" />{" "}
-                        {character.name}
                     </h1>
+                    <h1>{character.name}</h1>
                     <ul>
                         <li>
                             <Icon

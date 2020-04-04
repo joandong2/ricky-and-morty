@@ -53,6 +53,7 @@ nav a {
     margin-right: 15px;
     font-size: 1.2rem;
     animation: fade 1s ease-in forwards;
+    font-family: "Audiowide", cursive;
 }
 
 nav a:hover {
@@ -280,6 +281,7 @@ h4 {
 
 .charList-wrapper a {
     color: #fff;
+    font-family: "Audiowide", cursive;
 }
 
 .charList-wrapper .ui.pagination.menu {
@@ -353,7 +355,7 @@ h4 {
 
 .charsWrapper ul {
     list-style: none;
-    margin-left: 10rem;
+    margin-left: 5rem;
 }
 
 .charsWrapper ul li {
