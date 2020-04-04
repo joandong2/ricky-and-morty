@@ -271,7 +271,12 @@ h4 {
     border-radius: 50%;
 }
 
-.charList-wrapper h4 {
+.charList-wrapper .chars {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.charList-wrapper a {
     color: #fff;
 }
 
@@ -312,4 +317,52 @@ h4 {
     opacity: 0;
     visibility: hidden;
     transition: all ease 0.5s;
+}
+
+.charsWrapper {
+    background-image: url("./images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-position: center left;
+    min-height: 900px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.charsWrapper .first-col {
+    text-align: right;
+}
+
+.charsWrapper .first-col img {
+    border-radius: 50%;
+}
+
+.charsWrapper ul {
+    list-style: none;
+    margin-left: 10rem;
+}
+
+.charsWrapper ul li {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.charsWrapper .redBox {
+    background: red;
+    padding: 5px 10px;
+}
+
+.charsWrapper .purpleBox {
+    background: purple;
+    padding: 5px 10px;
+}
+
+.charsWrapper .brownBox {
+    background: burlywood;
+    padding: 5px 10px;
+}
+
+.charsWrapper .greenBox {
+    background: green;
+    padding: 5px 10px;
 }
