@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Pagination, Icon, Grid } from "semantic-ui-react";
+import { Pagination, Icon, Grid, GridRow, GridColumn } from "semantic-ui-react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Character from "./Character.js";
 import Searchform from "./Searchform.js";
@@ -38,8 +38,29 @@ export default function CharacterList() {
 
     return (
         <div className="charList-wrapper">
-            <Searchform keyword={keyHandler} />
-
+            <Grid>
+                <Grid.Row columns={2} className="charList-acc">
+                    <Grid.Column>
+                        <Searchform keyword={keyHandler} />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Pagination
+                            onPageChange={currPageHandler}
+                            totalPages={pages}
+                            boundaryRange={2}
+                            defaultActivePage={1}
+                            ellipsisItem={{
+                                content: <Icon name="ellipsis horizontal" />,
+                                icon: true,
+                            }}
+                            firstItem={null}
+                            lastItem={null}
+                            siblingRange={1}
+                            size="mini"
+                        />
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
             <Grid>
                 <TransitionGroup className="six column row">
                     {characters.map((char, i) => {
@@ -52,7 +73,7 @@ export default function CharacterList() {
                                 <Grid.Column
                                     key={i}
                                     style={{
-                                        transitionDelay: `${i * 100}ms`
+                                        transitionDelay: `${i * 100}ms`,
                                     }}
                                 >
                                     <Character key={i} attributes={char} />
@@ -63,20 +84,6 @@ export default function CharacterList() {
                     })}
                 </TransitionGroup>
             </Grid>
-
-            <Pagination
-                onPageChange={currPageHandler}
-                totalPages={pages}
-                boundaryRange={2}
-                defaultActivePage={1}
-                ellipsisItem={{
-                    content: <Icon name="ellipsis horizontal" />,
-                    icon: true
-                }}
-                firstItem={null}
-                lastItem={null}
-                siblingRange={1}
-            />
         </div>
     );
 }

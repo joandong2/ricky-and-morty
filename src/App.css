@@ -24,6 +24,15 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+}
+
 nav {
     margin-bottom: 40px;
     display: flex;
@@ -41,7 +50,7 @@ nav a {
     text-align: center;
     margin-right: 15px;
     font-size: 1.2rem;
-    animation: fade 2s ease-in forwards;
+    animation: fade 1s ease-in forwards;
 }
 
 nav a:hover {
@@ -74,7 +83,7 @@ nav a:hover {
     position: relative;
     animation-name: moving;
     animation-timing-function: ease-in;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     position: relative;
     top: 140px;
 }
@@ -90,7 +99,7 @@ nav a:hover {
     background-position: center center;
     background-size: cover;
     animation-name: moving;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     animation-delay: 0.1s;
 }
 
@@ -99,7 +108,7 @@ nav a:hover {
     background-position: center center;
     background-size: cover;
     animation-name: moving;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     animation-delay: 0.2s;
 }
 
@@ -108,7 +117,7 @@ nav a:hover {
     background-position: center center;
     background-size: cover;
     animation-name: moving;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     animation-delay: 0.3s;
 }
 
@@ -117,7 +126,7 @@ nav a:hover {
     background-position: center center;
     background-size: cover;
     animation-name: moving;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     animation-delay: 0.4s;
 }
 
@@ -126,7 +135,7 @@ nav a:hover {
     background-position: center center;
     background-size: cover;
     animation-name: moving;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     animation-delay: 0.5s;
 }
 
@@ -135,7 +144,7 @@ nav a:hover {
     background-position: center center;
     background-size: cover;
     animation-name: moving;
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
     animation-delay: 0.6s;
 }
 
@@ -230,21 +239,56 @@ h4 {
     text-align: center;
 }
 
-.search-wrapper .form-group {
+.charList-acc {
     display: flex;
+    justify-content: space-between;
 }
 
-.search-wrapper input {
-    margin-right: 10px;
+.charList-acc .column:last-child {
+    text-align: right;
+}
+
+.charList-wrapper .form .ui.input input {
+    background-color: rgba(255, 11, 214, 0.05);
+    color: rgba(251, 255, 16, 0.95);
+}
+
+.charList-wrapper .form button,
+.charList-wrapper .form button:hover,
+.charList-wrapper .form button:focus {
+    background: none;
+    padding: 0;
+}
+
+.charList-wrapper .form img {
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .charList-wrapper img {
     width: 100%;
     border: none;
+    border-radius: 50%;
+}
+
+.charList-wrapper h4 {
+    color: #fff;
 }
 
 .charList-wrapper .ui.pagination.menu {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    background: none;
+}
+
+.charList-wrapper .ui.pagination.menu a {
+    color: #fff;
+}
+
+.charList-wrapper .ui.pagination.menu a:hover,
+.charList-wrapper .ui.pagination.menu .active.item {
+    background-color: rgba(255, 11, 214, 0.05);
+    color: rgba(251, 255, 16, 0.95);
+    box-shadow: none;
 }
 
 .fade-enter {

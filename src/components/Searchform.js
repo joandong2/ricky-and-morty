@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, Input } from "semantic-ui-react";
 
+import spaceship from "../images/spaceship.png";
+
 export default function Searchform(props) {
     const [key, setKey] = useState("");
 
@@ -25,7 +27,9 @@ export default function Searchform(props) {
                     name="search"
                 />
 
-                <Form.Field control={Button}>Search</Form.Field>
+                <Form.Field control={Button}>
+                    <img src={spaceship} alt="button" />
+                </Form.Field>
             </Form.Group>
         </Form>
     );
