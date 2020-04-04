@@ -6,26 +6,23 @@ export default function Character(props) {
     //console.log(props);
     const [charId, setCharId] = useState(props.match.params.id);
     const [character, setCharacter] = useState([]);
+    const [characterLocation, setCharacterLocation] = useState([]);
+    const [characterOrigin, setCharacterOrigin] = useState([]);
 
     useEffect(() => {
         axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/${charId}`
-            )
+            .get(`https://rickandmortyapi.com/api/character/${charId}`)
             .then((res) => {
                 // handle success
                 console.log(res.data);
                 setCharacter(res.data);
+                setCharacterLocation(res.data.location);
+                setCharacterOrigin(res.data.origin);
             })
             .catch((error) => {
                 console.log("Error:", error);
             });
     }, [charId]);
-
-    // console.log(character.location);
-    // Object.keys(character.location).map((key) => {
-    //     console.log(character.location[key]);
-    // });
 
     // Gender
     let gender_img = "";
@@ -113,6 +110,14 @@ export default function Character(props) {
                             <span className="brownBox">
                                 {character.type === "" ? "NA" : character.type}
                             </span>
+                        </li>
+                        <li>
+                            <Icon size="large" name="globe" color="green" />{" "}
+                            {characterOrigin.name}
+                        </li>
+                        <li>
+                            <Icon size="large" name="home" color="yellow" />{" "}
+                            {characterLocation.name}
                         </li>
                     </ul>
                     {/* <ul>
